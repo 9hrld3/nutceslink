@@ -1,0 +1,10 @@
+node_modules
+.next
+.env
+.env.local
+.env*.local
+supabase/.temp
+supabase/functions/.env
+*.tsbuildinfo
+next-env.d.ts
+AGENTS.md

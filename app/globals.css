@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Tokens de docs/Design.md. Sin esquinas redondeadas: no usar rounded-*. */
+@theme inline {
+  --color-primary: #12355b;
+  --color-secondary: #4fa3a5;
+  --color-accent: #f4b942;
+  --color-ink: #0b1b2b;
+  --color-paper: #f3f6f9;
+  --font-display: var(--font-big-shoulders), sans-serif;
+  --font-sans: var(--font-barlow), sans-serif;
+  --font-label: var(--font-barlow-condensed), sans-serif;
+}
+
+body {
+  background: #f3f6f9;
+  color: #0b1b2b;
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-big-shoulders), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.label {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.field {
+  width: 100%;
+  border: 2px solid #12355b;
+  background: #ffffff;
+  padding: 8px 16px;
+  color: #0b1b2b;
+}
+.field:focus { outline: 3px solid #f4b942; outline-offset: 0; }
+
+.btn {
+  display: inline-block;
+  padding: 8px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid #12355b;
+  cursor: pointer;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: #12355b; color: #f3f6f9; }
+.btn-accent { background: #f4b942; color: #0b1b2b; border-color: #f4b942; }
+.btn-ghost { background: transparent; color: #12355b; }
+
+/* Impresión de informes: sin navegación, fondo blanco, colores de marca conservados */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #ffffff; font-size: 12pt; }
+  main { padding: 0 !important; max-width: none !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 14mm; }
+}
